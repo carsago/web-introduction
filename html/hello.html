@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>안녕하세요 백엔드 오리입니다.</title>
+    <style>
+        .centered {
+            margin: 0 auto;
+            text-align: center;
+            width: 50%;
+        }
+    </style>
+    <div class="centered">
+        <img src="../images/image_604220957.jpg">
+        <p><img src="../images/36195c4311dc228a51280209.gif"></p>
+        <h1>자기소개</h1>
+        <p><i>반갑습니다^^ 저는 경남 마산에서 상경한 백엔드 오리 라고 합니다.</i></p>
+        <p><i>1년 가까운 시간동안 여러분들과 잘 지냈으면 조을것같습니다^^</i></p>
+        <p><i>놀러 오는곳 : https://github.com/carsago</i></p>
+    </div>
+    <hr color="green" size="10px">
+    <div class="centered">
+        <h2><i>내가 사랑한 영화들</i></h2>
+        <p>제가 조아하는 영화들을 여러분들에게 소개해드리고 싶어요 ^^</p>
+        <table border="3" border-collapse="collapse" width="800">
+            <tr>
+                <td>순위</td>
+                <td>제목</td>
+                <td>포스터</td>
+                <td>줄거리</td>
+                <td>링크</td>
+            </tr>
+            <tr>
+                <td>5등</td>
+                <td>라라랜드(2016)</td>
+                <td><img src="../images/라라랜드.jpeg" style="width:150px; height:200px;"></td>
+                <td>춤바람 난 이야기입니다 ㅎㅎ</td>
+                <td><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=134963">이동</a></td>
+            </tr>
+            <tr>
+                <td>4등</td>
+                <td>주먹왕 랄프(2012)</td>
+                <td><img src="../images/랄프.jpeg" style="width:150px; height:290px;"></td>
+                <td>건장한 젊은이들의 이야기라 저절로 흥이 납니다 ㅎㅎ</td>
+                <td><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=87307">이동</a></td>
+            </tr>
+            <tr>
+                <td>3등</td>
+                <td>장고:분노의 추적자(2013)</td>
+                <td><img src="../images/장고.jpeg" style="width:150px; height:200px;"></td>
+                <td>우리 젊을 때 인기 많던 총잡이들 이야기 입니다 ㅎㅎ</td>
+                <td><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=87311">이동</a></td>
+            </tr>
+            <tr>
+                <td>2등</td>
+                <td>어느 가족(2018)</td>
+                <td><img src="../images/어느가족.jpeg" style="width:150px; height:200px;"></td>
+                <td>눈시울이 붉어지는 이야기입니다. ㅎㅎ</td>
+                <td><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=172174">이동</a></td>
+            </tr>
+        </table>
+        <p><b>대망의 금메달은 ....</b></p>
+        <p><b>두구두구두구두구.....</b></p>
+        <p><img src="../images/201578831441941119.jpg"></p>
+        <p style="font-size: 24px"><b>금메달</b></p>
+        <p style="font-size: 38px"><b>미드나잇 인 파리(2011)</b></p>
+        <p><img src=" ../images/미드나잇인파리.jpeg"></p>
+        <p>불란서에서 사랑을 나누는 청춘(靑春)들의 이야기 입니다 ㅎㅎ </p>
+        <p><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=74610">보러 가기</a></p>
+    </div>
+    <hr color="green" size="10px">
+    <div class="centered">
+        <p><img src="../images/감사합니다_이미지4.gif"></p>
+        <p><img src="../images/감사합니다_이미지5.gif"></p>
+    </div>
+    <hr color="green" size="10px">
+    <div>
+        <h3><b>방명록</b></h3>
+        <p><i>좋아하는 영화들을 골라주세요 ^^</i></p>
+        <form>
+            <label>닉네임 : <input type="text" id="nickname"></label><br>
+            <label><input type="checkbox" id="checkbox1"> 라라랜드</label><br>
+            <label><input type="checkbox" id="checkbox2"> 주먹왕랄프</label><br>
+            <label><input type="checkbox" id="checkbox3"> 장고</label><br>
+            <label><input type="checkbox" id="checkbox4"> 어느 가족</label><br>
+            <label><input type="checkbox" id="checkbox5"> 미드나잇 인 파리</label><br>
+            <button type="button" onclick="sendResult()">등록</button>
+            <button type="reset" onclick="resetCheckboxes()">취소</button>
+        </form>
+    </div>
+</head>
+<body>
+</body>
+</html>
+
+
+<script>
+    function sendResult() {
+        var nickname = document.getElementById('nickname').value;
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        var count = checkboxes.length;
+
+        if (nickname === null || nickname.trim() === '') {
+            alert("닉네임을 입력해주세요.");
+            return;
+        }
+
+        if (count == 0) {
+            alert("아쉽게도 " + nickname + "님은 저와 취향이 겹치는 영화가 없군요 ㅠㅠ");
+            return;
+        }
+
+        alert(nickname + "님은 저와 취향이 " + count + "개가 겹치시네요^^");
+    }
+
+    function resetCheckboxes() {
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
+</script>
